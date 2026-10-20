@@ -1,0 +1,24 @@
+{
+  "projectId": "tandem",
+  "name": "Send your first invoice",
+  "noBaseline": false,
+  "changed": [
+    "rate",
+    "send"
+  ],
+  "broken": [],
+  "frames": {
+    "rate": {
+      "after": "frames/rate-after.png",
+      "before": "frames/rate-before.png"
+    },
+    "send": {
+      "after": "frames/send-after.png",
+      "before": "frames/send-before.png"
+    }
+  },
+  "video": "out/video.mp4",
+  "thumbnail": "out/thumbnail.png",
+  "preview": "preview.gif",
+  "guide": "docs/guide.md"
+}
