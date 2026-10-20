@@ -1,0 +1,25 @@
+name: reshoot
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: reshoot-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      # The app is static: Reshoot serves app/ at the url in reshoot.yml by itself.
+      - uses: kiromoussa/reshoot-action@v0
+        with:
+          project: reshoot.yml

@@ -1,0 +1,34 @@
+version: 1
+id: tandem
+name: Send your first invoice
+url: http://127.0.0.1:4174
+viewport: { width: 1440, height: 810, deviceScaleFactor: 2 }
+voice: { provider: none }
+theme:
+  id: landing
+  name: Landing
+  colors:
+    background: "#ece9e2"
+    accent: "#3b5bfd"
+    text: "#16161a"
+    captionBg: "rgba(22, 22, 26, 0.9)"
+    captionText: "#ffffff"
+    spotlightDim: "rgba(0, 0, 0, 0.18)"
+  font: { family: "Inter, system-ui, sans-serif" }
+  frame: { padding: 48, radius: 14, shadow: true, background: "#ffffff" }
+  cursor: { style: mac, size: 30, clickRipple: true }
+  zoom: { scale: 1.45, holdMs: 1100, leadMs: 400, maxScale: 1.8 }
+  spotlight: false
+  captions: { style: line, position: bottom, maxWords: 8 }
+  transitions: { type: fade, durationMs: 400 }
+  titleCard: false
+  outro: false
+  sfx: { click: true }
+  narrationPadMs: 250
+steps:
+  - { id: open, action: goto, value: "/", waitAfterMs: 900, zoom: none, say: "This is the invoices page." }
+  - { id: new, action: click, target: "role=button[name=\"+ New invoice\"]", waitAfterMs: 700, say: "Start a new invoice." }
+  - { id: customer, action: select, target: "role=combobox[name=\"Customer\"]", value: "Halcyon Robotics", say: "Pick the customer." }
+  - { id: item, action: fill, target: "role=textbox[name=\"Item\"]", value: "Brand sprint, October", say: "Describe the work." }
+  - { id: rate, action: fill, target: "role=textbox[name=\"Rate\"]", value: "6400", say: "Enter the rate. The total updates." }
+  - { id: send, action: click, target: "role=button[name=\"Send invoice\"]", waitAfterMs: 2600, say: "Send it. It lands at the top." }
